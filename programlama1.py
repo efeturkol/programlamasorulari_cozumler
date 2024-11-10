@@ -454,4 +454,64 @@ def basamak_faktoriyel(sayi):
 
 
 
+#Kullanıcıdan alınacak pozitif tamsayılardan oluşturulacak “N” elemanlı bir dizide, yine kullanıcının
+#belirlediği bir “k” indeks numarasına göre dizinin “k”.indeksinden büyük olan konumdaki değerleri dizinin
+#sonundan başlayarak her adımda “0” olarak değiştiren bir özyinelemeli(recursive) fonksiyon yazılacaktır. Ayrıca
+#her değiştirme adımında dizinin tüm elemanlarını yazdırılacaktır.
 
+N = int(input("Bir N sayısı giriniz:"))
+k = int(input("Bir K indeksi giriniz:"))
+
+dizi = []
+
+for i in range(N+1):
+    sayi = int(input("Bir sayı giriniz:"))
+    dizi.append(sayi)
+
+
+
+#Klavyeden girilen 2 sayıdan büyük olan sayı küçük sayıya bölünerek bölüm ve kalan sonucu
+#yazdırılacaktır. Bu işlem için yazılacak “Bolme()” fonksiyonu bölme işlemini yapıp bölüm ve kalanı bulacaktır. Sayı
+#girişi ve sonuçları yazdırma işlemleri “main()” fonksiyonunda yapılacaktır.(Global değişken kullanılmayacaktır.)
+
+def bolme(sayi1,sayi2):
+    if sayi1 > sayi2:
+        kucuk = sayi2
+        buyuk = sayi1
+    else:
+        kucuk = sayi1
+        buyuk = sayi2
+
+    bolum = buyuk // kucuk
+    kalan = buyuk % kucuk
+
+    return bolum, kalan
+
+def main():
+    
+    sayi1 = int(input("Birinci sayıyı girin: "))
+    sayi2 = int(input("İkinci sayıyı girin: "))
+
+    bolum, kalan = bolme(sayi1, sayi2)
+    
+    print("Bölüm:", bolum)
+    print("Kalan:", kalan)
+
+
+
+#Kullanıcıdan N değeri alındıktan sonra N adet sayı girişi alınarak bu sayılar bellekte tutulacaktır. Tüm
+#sayılar alındıktan sonra bu sayılardan en büyük ve en küçük sayı ile girilen sayıların ortalaması bulunacaktır.
+
+def main2():
+    liste = []
+    N = int(input("Bir N sayısı giriniz:"))
+    for i in range(N):
+        sayi = int(input("Bir sayı giriniz:"))
+        liste.append(sayi)
+    en_buyuk = max(liste)
+    en_kucuk = min(liste)
+    ortalama = sum(liste) / N
+
+    print("En büyük sayı:", en_buyuk)
+    print("En küçük sayı:", en_kucuk)
+    print("Ortalama:", ortalama)
