@@ -515,3 +515,175 @@ def main2():
     print("En büyük sayı:", en_buyuk)
     print("En küçük sayı:", en_kucuk)
     print("Ortalama:", ortalama)
+    
+
+
+
+
+#1'den 50'ye kadar tamsayıları yineleyen bir Python programı yazın.Üçün katları için sayı yerine “Big”,
+#yedinin katları yerine “Bang” yazın.Hem üçün hem de yedinin katı olan sayılar için “BigBang” yazdırın.
+
+def yazdir(sayi):
+    liste = []
+    for i in range(1,sayi+1):
+        if i % 3 == 0 and i % 7 == 0:
+            liste.append("BigBang")
+        elif i % 3 == 0:
+            liste.append("Big")
+        elif i % 7 == 0:
+            liste.append("Bang")
+        else:
+            liste.append(i)
+    return liste
+
+
+
+#Kullanıcıdan bir sayı alınız.ve bu sayının basamak değeri 3'ten küçükse bu sayının yerine karesini yazdırın.
+#Eğer 3 ten büyük ve tek ise bu sayının 2 eksiğini yazdırın. Eğer 3 ten büyük ve çift sayı ise bu sayının 1 fazlasını ekrana yazdırın.
+#Kullanıcıdan alınan girişin geçerli olup olmadığını da kontrol ediniz.
+
+def sayi_isle():
+    sayi = int(input("Bir sayı giriniz:"))
+    if sayi < 0:
+        print("Geçerli bir sayı girmediniz.")
+    elif sayi < 3:
+        print(sayi ** 2)
+    elif 3 <= sayi and sayi % 2 == 1:
+        print(sayi - 2)
+    else:
+        print(sayi + 1)
+
+
+
+#Verilen sayının tam bölenleri bir listeye atanıp ve toplamlarının sonucunun tam bölenlerini bulup listeye eklediğimizde
+#son listede bulunan tam bölenlerin toplamı ilk verilen sayıyı veriyorsa bu sayılara amicable numbers denir.
+#Kullanıcının girdiği bir sayının amicable numbers sayı olup olmadığını kontrol ediniz.
+
+def tambolen_toplam():
+    sayi = int(input("Bir sayı giriniz:"))
+    toplam = 0
+    liste = []
+    for i in range(1,sayi):
+        if sayi % i == 0:
+            toplam = toplam + i
+            liste.append(toplam)
+    if toplam == sayi:
+        print("Sayı amicable sayıdır.")
+    else:
+        print("Sayı amicable sayı değildir.")
+    
+
+
+#Recursive fonksiyon ile faktöriyel çözümü yapınız.
+
+def faktoriyel(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * faktoriyel(n-1)
+    
+
+
+#Recursive fonksiyon ile fibonacci serisi çözümü yapınız.
+
+def fibonacci(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibonacci(n-1) + fibonacci(n-2)
+
+
+
+#Recursive fonksiyon ile geri saydırma çözümünü yapınız.
+
+def gerisayma(n):
+    if n == 0:
+        print("Geri sayım sonlandırılıyor")
+    else:
+        print(n, end=" ")
+        gerisayma(n-1)
+    
+
+
+#Recursive fonksiykon ile tablo oluşturma çözümünü yapınız.
+
+def tablo_olustur():
+    olcu = int(input("Bir tablo ölçüsü giriniz:"))
+    for satir in range(1, olcu+1):
+        for sutun in range(1,olcu+1):
+            tablo = satir * sutun
+            print(tablo, end=" ")
+        print()
+
+
+
+##matrisin satır ve sütun toplamlarını hesaplayan programı yazınız
+
+import random
+def matrisiekranayaz(matris,ad):
+    print(ad)
+    for i in range(len(matris)):
+        for j in range(len(matris[i])):
+            print(matris[i][j], end=" ")
+        print()
+satir = 3
+sutun = 5
+A = [[int(10*random.random())for i in range(sutun)]for j in range(satir)]
+#matrisiekranayaz(A,'A')
+
+satirtop = []
+for i in range(satir):
+    top = 0
+    for j in range(sutun):
+        top = top + A[i][j]
+#print("Satır toplamları:",top)
+
+sutuntop = []
+for j in range(sutun):
+    top = 0
+    for i in range(satir):
+        top = top + A[i][j]
+#print("Sütun toplamları:",top)
+
+
+
+##0 matris oluşturma
+
+def sifirmatris(matris,ad):
+    print(ad)
+    for i in range(len(matris)):
+        for j in range(len(matris[i])):
+            print(matris[i][j], end=" ")
+        print()
+satir = 4
+sutun = 4
+
+S = [[0 for i in range(sutun)]for j in range(satir)]
+
+#sifirmatris(S,'S')
+
+
+
+#Verilen matrislerin toplamını hesaplayan program
+
+import random
+def matrisiekranayaz(matris,ad):
+    print(ad)
+    for i in range(len(matris)):
+        for j in range(len(matris[i])):
+            print(matris[i][j], end=" ")
+        print()
+satir = 3
+sutun = 5
+A = [[int(10*random.random())for i in range(sutun)]for j in range(satir)]
+#matrisiekranayaz(A,'A')
+  
+B = [[int(10*random.random())for i in range(sutun)]for j in range(satir)]
+#matrisiekranayaz(B,'B')
+
+C = [[0 for i in range(sutun)]for j in range(satir)]
+for i in range(satir):
+    for j in range(sutun):
+        C[i][j]= A[i][j] + B[i][j]
+#matrisiekranayaz(C,'C')
